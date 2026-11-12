@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TechConnect - Soluções completas em tecnologia, suporte técnico, desenvolvimento de sites, manutenção de computadores e consultoria digital.">
+    <title>TechConnect | Soluções em Tecnologia e Inovação Digital</title>
+    <style>
+/* ==========================================================================
+   FOLHA DE ESTILOS PRINCIPAL - TECHCONNECT
+   Estrutura organizada por seções, variáveis, Box Model, Flexbox, Grid e
+   Media Queries para responsividade em desktops, tablets e celulares.
+   ========================================================================== */
+
+/* Variáveis de Identidade Visual */
+:root {
+    --cor-primaria: #2563eb;
+    --cor-primaria-escura: #1d4ed8;
+    --cor-secundaria: #06b6d4;
+    --cor-escura: #0f172a;
+    --cor-escura-suave: #1e293b;
+    --cor-fundo-claro: #ffffff;
+    --cor-fundo-alternado: #f1f5f9;
+    --cor-texto: #334155;
+    --cor-texto-suave: #64748b;
+    --cor-borda: #cbd5e1;
+    --sombra-suave: 0 4px 16px rgba(15, 23, 42, 0.08);
+    --sombra-destaque: 0 12px 28px rgba(37, 99, 235, 0.16);
+    --raio-borda: 12px;
+    --transicao: all 0.3s ease;
+}
+
+/* Reset e Configurações Base (Box Model) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo-claro);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transicao);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Container Centralizador */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   1. CABEÇALHO (HEADER) E NAVEGAÇÃO
+   ========================================================================== */
+#cabecalho {
+    background-color: var(--cor-escura);
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--cor-escura-suave);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+.cabecalho-conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 76px;
+    padding: 12px 0;
+    gap: 20px;
+}
+
+.logotipo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.logo-icone {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.logo-texto strong {
+    color: var(--cor-secundaria);
+}
+
+.menu-principal ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.menu-principal a {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #e2e8f0;
+}
+
+.menu-principal a:hover {
+    background-color: var(--cor-escura-suave);
+    color: #ffffff;
+}
+
+.menu-principal a.nav-destaque {
+    background-color: var(--cor-primaria);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.menu-principal a.nav-destaque:hover {
+    background-color: var(--cor-primaria-escura);
+}
+
+/* ==========================================================================
+   2. BANNER PRINCIPAL
+   ========================================================================== */
+#inicio.banner-principal {
+    background: linear-gradient(135deg, var(--cor-escura) 0%, #172554 100%);
+    color: #ffffff;
+    padding: 80px 0;
+}
+
+.banner-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+}
+
+.banner-texto {
+    flex: 1;
+}
+
+.etiqueta-destaque {
+    display: inline-block;
+    background-color: rgba(6, 182, 212, 0.16);
+    color: #67e8f9;
+    border: 1px solid rgba(6, 182, 212, 0.4);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.banner-texto h1 {
+    font-size: 2.6rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.banner-texto p {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    margin-bottom: 30px;
+}
+
+.banner-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.banner-imagem {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.banner-imagem img {
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Botões Reutilizáveis */
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid transparent;
+    text-align: center;
+}
+
+.btn-primario {
+    background-color: var(--cor-primaria);
+    color: #ffffff;
+}
+
+.btn-primario:hover {
+    background-color: var(--cor-primaria-escura);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+.btn-secundario {
+    background-color: transparent;
+    color: #ffffff;
+    border-color: #64748b;
+}
+
+.btn-secundario:hover {
+    border-color: var(--cor-secundaria);
+    color: #67e8f9;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   ESTRUTURA PADRÃO DAS SEÇÕES
+   ========================================================================== */
+.secao {
+    padding: 80px 0;
+}
+
+.secao-clara {
+    background-color: var(--cor-fundo-claro);
+}
+
+.secao-alternada {
+    background-color: var(--cor-fundo-alternado);
+}
+
+.secao-escura {
+    background-color: var(--cor-escura);
+    color: #ffffff;
+}
+
+.cabecalho-secao {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 48px auto;
+}
+
+.subtitulo-secao {
+    display: inline-block;
+    color: var(--cor-primaria);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.cabecalho-claro .subtitulo-secao {
+    color: var(--cor-secundaria);
+}
+
+.cabecalho-secao h2 {
+    font-size: 2.1rem;
+    color: var(--cor-escura);
+    margin-bottom: 12px;
+}
+
+.cabecalho-claro h2 {
+    color: #ffffff;
+}
+
+.cabecalho-secao p {
+    color: var(--cor-texto-suave);
+    font-size: 1.05rem;
+}
+
+.cabecalho-claro p {
+    color: #cbd5e1;
+}
+
+/* ==========================================================================
+   3. SOBRE A EMPRESA (MISSÃO, VISÃO E VALORES)
+   ========================================================================== */
+.sobre-introducao {
+    max-width: 860px;
+    margin: 0 auto 44px auto;
+    text-align: center;
+}
+
+.sobre-introducao p {
+    font-size: 1.08rem;
+    margin-bottom: 16px;
+}
+
+.mvv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.card-mvv {
+    background-color: var(--cor-fundo-alternado);
+    padding: 30px;
+    border-radius: var(--raio-borda);
+    border-top: 4px solid var(--cor-primaria);
+    box-shadow: var(--sombra-suave);
+}
+
+.card-mvv h3 {
+    color: var(--cor-escura);
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+
+/* ==========================================================================
+   4. SEÇÃO DE SERVIÇOS (CARDS COM GRID)
+   ========================================================================== */
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.card-servico {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--raio-borda);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: var(--sombra-suave);
+    transition: var(--transicao);
+}
+
+.card-servico:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sombra-destaque);
+    border-color: var(--cor-primaria);
+}
+
+.card-servico img {
+    width: 68px;
+    height: 68px;
+    margin-bottom: 20px;
+}
+
+.card-servico h3 {
+    color: var(--cor-escura);
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+}
+
+.card-servico p {
+    color: var(--cor-texto-suave);
+    font-size: 0.96rem;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.btn-card {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #eff6ff;
+    color: var(--cor-primaria);
+    font-weight: 600;
+    font-size: 0.92rem;
+    border-radius: 8px;
+}
+
+.btn-card:hover {
+    background-color: var(--cor-primaria);
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   5. SEÇÃO DE PROJETOS / PORTFÓLIO
+   ========================================================================== */
+.projetos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.card-projeto {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--raio-borda);
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+    transition: var(--transicao);
+}
+
+.card-projeto:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sombra-destaque);
+}
+
+.card-projeto img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.projeto-conteudo {
+    padding: 24px;
+}
+
+.tag-projeto {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--cor-primaria);
+    background-color: #eff6ff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.projeto-conteudo h3 {
+    color: var(--cor-escura);
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.projeto-conteudo p {
+    color: var(--cor-texto-suave);
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   6. SEÇÃO DE DIFERENCIAIS
+   ========================================================================== */
+.lista-diferenciais {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.item-diferencial {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    background-color: var(--cor-escura-suave);
+    padding: 26px;
+    border-radius: var(--raio-borda);
+    border: 1px solid #334155;
+    transition: var(--transicao);
+}
+
+.item-diferencial:hover {
+    border-color: var(--cor-secundaria);
+    transform: translateY(-3px);
+}
+
+.icone-diferencial {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    height: 48px;
+    background-color: rgba(6, 182, 212, 0.15);
+    color: var(--cor-secundaria);
+    border-radius: 10px;
+    font-size: 1.4rem;
+}
+
+.item-diferencial h3 {
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+    color: #ffffff;
+}
+
+.item-diferencial p {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   7. DEPOIMENTOS DE CLIENTES
+   ========================================================================== */
+.depoimentos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.card-depoimento {
+    background-color: #ffffff;
+    padding: 28px;
+    border-radius: var(--raio-borda);
+    border: 1px solid #e2e8f0;
+    box-shadow: var(--sombra-suave);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.texto-depoimento {
+    font-style: italic;
+    color: var(--cor-texto);
+    margin-bottom: 20px;
+}
+
+.autor-depoimento {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 14px;
+}
+
+.autor-depoimento strong {
+    display: block;
+    color: var(--cor-escura);
+    font-size: 1rem;
+}
+
+.autor-depoimento span {
+    color: var(--cor-texto-suave);
+    font-size: 0.88rem;
+}
+
+/* ==========================================================================
+   8. FORMULÁRIO DE CONTATO
+   ========================================================================== */
+.contato-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.contato-info h2 {
+    font-size: 2rem;
+    color: var(--cor-escura);
+    margin-bottom: 16px;
+}
+
+.contato-info > p {
+    color: var(--cor-texto-suave);
+    margin-bottom: 28px;
+}
+
+.detalhes-contato {
+    background-color: var(--cor-fundo-alternado);
+    padding: 24px;
+    border-radius: var(--raio-borda);
+    border-left: 4px solid var(--cor-primaria);
+}
+
+.detalhes-contato p {
+    margin-bottom: 10px;
+    font-size: 0.96rem;
+}
+
+.detalhes-contato p:last-child {
+    margin-bottom: 0;
+}
+
+.formulario-contato {
+    background-color: #ffffff;
+    padding: 32px;
+    border-radius: var(--raio-borda);
+    border: 1px solid #e2e8f0;
+    box-shadow: var(--sombra-suave);
+}
+
+.campo-grupo {
+    margin-bottom: 20px;
+}
+
+.campo-grupo label {
+    display: block;
+    font-weight: 600;
+    color: var(--cor-escura);
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+.campo-grupo input,
+.campo-grupo textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--cor-escura);
+    background-color: #f8fafc;
+    transition: var(--transicao);
+}
+
+.campo-grupo input:focus,
+.campo-grupo textarea:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.btn-enviar {
+    width: 100%;
+}
+
+/* ==========================================================================
+   9. RODAPÉ (FOOTER)
+   ========================================================================== */
+#rodape {
+    background-color: var(--cor-escura);
+    color: #cbd5e1;
+    padding-top: 60px;
+}
+
+.rodape-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.logo-rodape {
+    margin-bottom: 16px;
+}
+
+.rodape-coluna p {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+}
+
+.rodape-contato {
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.rodape-coluna h3 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+}
+
+.rodape-links li {
+    margin-bottom: 10px;
+}
+
+.rodape-links a {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+}
+
+.rodape-links a:hover {
+    color: var(--cor-secundaria);
+    padding-left: 4px;
+}
+
+.rodape-base {
+    background-color: #020617;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MEDIA QUERIES: TABLETS E CELULARES)
+   ========================================================================== */
+
+/* Tablets (até 992px) */
+@media (max-width: 992px) {
+    .cabecalho-conteudo {
+        flex-direction: column;
+        padding: 16px 0;
+    }
+
+    .banner-grid {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .banner-acoes {
+        justify-content: center;
+    }
+
+    .banner-texto h1 {
+        font-size: 2.1rem;
+    }
+
+    .mvv-grid,
+    .projetos-grid,
+    .depoimentos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .servicos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contato-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .rodape-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Celulares (até 600px) */
+@media (max-width: 600px) {
+    .secao {
+        padding: 56px 0;
+    }
+
+    .menu-principal ul {
+        justify-content: center;
+    }
+
+    .banner-texto h1 {
+        font-size: 1.75rem;
+    }
+
+    .cabecalho-secao h2 {
+        font-size: 1.7rem;
+    }
+
+    .mvv-grid,
+    .servicos-grid,
+    .projetos-grid,
+    .lista-diferenciais,
+    .depoimentos-grid,
+    .rodape-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .formulario-contato {
+        padding: 22px;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <!-- 1. CABEÇALHO (HEADER) -->
+    <header id="cabecalho">
+        <div class="container cabecalho-conteudo">
+            <a href="#inicio" class="logotipo" aria-label="Página inicial da TechConnect">
+                <span class="logo-icone" aria-hidden="true">&lt;/&gt;</span>
+                <span class="logo-texto">Tech<strong>Connect</strong></span>
+            </a>
+
+            <nav class="menu-principal" aria-label="Navegação principal">
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#projetos">Portfólio</a></li>
+                    <li><a href="#diferenciais">Diferenciais</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#contato" class="nav-destaque">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+
+        <!-- 2. BANNER PRINCIPAL -->
+        <section id="inicio" class="banner-principal">
+            <div class="container banner-grid">
+                <div class="banner-texto">
+                    <span class="etiqueta-destaque">Inovação &amp; Confiabilidade em TI</span>
+                    <h1>Transformamos desafios tecnológicos em resultados reais para o seu negócio</h1>
+                    <p>
+                        A <strong>TechConnect</strong> oferece soluções completas em desenvolvimento web,
+                        suporte técnico especializado, manutenção de equipamentos e consultoria digital
+                        para impulsionar empresas de todos os portes.
+                    </p>
+                    <div class="banner-acoes">
+                        <a href="#servicos" class="btn btn-primario">Conheça nossos serviços</a>
+                        <a href="#contato" class="btn btn-secundario">Solicitar orçamento</a>
+                    </div>
+                </div>
+
+                <div class="banner-imagem">
+                    <img
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNDYwIiB3aWR0aD0iNjQwIiBoZWlnaHQ9IjQ2MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnR3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxZTI5M2IiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGYxNzJhIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJhY2NlbnRHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMyNTYzZWIiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDZiNmQ0Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iNjQwIiBoZWlnaHQ9IjQ2MCIgcng9IjIwIiBmaWxsPSJ1cmwoI2JnR3JhZCkiIHN0cm9rZT0iIzMzNDE1NSIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPGNpcmNsZSBjeD0iNTQwIiBjeT0iODAiIHI9IjkwIiBmaWxsPSIjMjU2M2ViIiBvcGFjaXR5PSIwLjE1Ii8+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMzkwIiByPSIxMTAiIGZpbGw9IiMwNmI2ZDQiIG9wYWNpdHk9IjAuMTIiLz4KICA8cmVjdCB4PSI2MCIgeT0iNTUiIHdpZHRoPSI1MjAiIGhlaWdodD0iMzMwIiByeD0iMTQiIGZpbGw9IiMwYjExMjAiIHN0cm9rZT0iIzMzNDE1NSIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPHJlY3QgeD0iNjAiIHk9IjU1IiB3aWR0aD0iNTIwIiBoZWlnaHQ9IjM4IiByeD0iMTQiIGZpbGw9IiMxZTI5M2IiLz4KICA8Y2lyY2xlIGN4PSI4NiIgY3k9Ijc0IiByPSI2IiBmaWxsPSIjZWY0NDQ0Ii8+CiAgPGNpcmNsZSBjeD0iMTA2IiBjeT0iNzQiIHI9IjYiIGZpbGw9IiNmNTllMGIiLz4KICA8Y2lyY2xlIGN4PSIxMjYiIGN5PSI3NCIgcj0iNiIgZmlsbD0iIzEwYjk4MSIvPgogIDxyZWN0IHg9IjIxMCIgeT0iNjciIHdpZHRoPSIyMjAiIGhlaWdodD0iMTQiIHJ4PSI3IiBmaWxsPSIjMzM0MTU1Ii8+CiAgPHJlY3QgeD0iODIiIHk9IjExMiIgd2lkdGg9IjEzMCIgaGVpZ2h0PSIyNTAiIHJ4PSIxMCIgZmlsbD0iIzEzMWMzMSIvPgogIDxyZWN0IHg9Ijk4IiB5PSIxMzIiIHdpZHRoPSI4MCIgaGVpZ2h0PSIxMiIgcng9IjYiIGZpbGw9InVybCgjYWNjZW50R3JhZCkiLz4KICA8cmVjdCB4PSI5OCIgeT0iMTYwIiB3aWR0aD0iOTgiIGhlaWdodD0iMTAiIHJ4PSI1IiBmaWxsPSIjMzM0MTU1Ii8+CiAgPHJlY3QgeD0iOTgiIHk9IjE4MiIgd2lkdGg9Ijg1IiBoZWlnaHQ9IjEwIiByeD0iNSIgZmlsbD0iIzMzNDE1NSIvPgogIDxyZWN0IHg9Ijk4IiB5PSIyMDQiIHdpZHRoPSI5MiIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IiMzMzQxNTUiLz4KICA8cmVjdCB4PSI5OCIgeT0iMjI2IiB3aWR0aD0iNzUiIGhlaWdodD0iMTAiIHJ4PSI1IiBmaWxsPSIjMzM0MTU1Ii8+CiAgPHJlY3QgeD0iOTgiIHk9IjMxMCIgd2lkdGg9Ijk4IiBoZWlnaHQ9IjM0IiByeD0iOCIgZmlsbD0idXJsKCNhY2NlbnRHcmFkKSIvPgogIDxyZWN0IHg9IjIzMCIgeT0iMTEyIiB3aWR0aD0iMTU1IiBoZWlnaHQ9IjkwIiByeD0iMTAiIGZpbGw9IiMxMzFjMzEiIHN0cm9rZT0iIzFlMjkzYiIvPgogIDxjaXJjbGUgY3g9IjI2MCIgY3k9IjE0MiIgcj0iMTQiIGZpbGw9IiMyNTYzZWIiIG9wYWNpdHk9IjAuMjUiLz4KICA8Y2lyY2xlIGN4PSIyNjAiIGN5PSIxNDIiIHI9IjYiIGZpbGw9IiMzOGJkZjgiLz4KICA8cmVjdCB4PSIyODUiIHk9IjEzNCIgd2lkdGg9Ijc1IiBoZWlnaHQ9IjEwIiByeD0iNSIgZmlsbD0iI2UyZThmMCIvPgogIDxyZWN0IHg9IjI4NSIgeT0iMTUyIiB3aWR0aD0iNTUiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9IiM2NDc0OGIiLz4KICA8cmVjdCB4PSIyNDYiIHk9IjE3NCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9InVybCgjYWNjZW50R3JhZCkiLz4KICA8cmVjdCB4PSI0MDIiIHk9IjExMiIgd2lkdGg9IjE1NSIgaGVpZ2h0PSI5MCIgcng9IjEwIiBmaWxsPSIjMTMxYzMxIiBzdHJva2U9IiMxZTI5M2IiLz4KICA8Y2lyY2xlIGN4PSI0MzIiIGN5PSIxNDIiIHI9IjE0IiBmaWxsPSIjMDZiNmQ0IiBvcGFjaXR5PSIwLjI1Ii8+CiAgPGNpcmNsZSBjeD0iNDMyIiBjeT0iMTQyIiByPSI2IiBmaWxsPSIjMjJkM2VlIi8+CiAgPHJlY3QgeD0iNDU3IiB5PSIxMzQiIHdpZHRoPSI3NSIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IiNlMmU4ZjAiLz4KICA8cmVjdCB4PSI0NTciIHk9IjE1MiIgd2lkdGg9IjUwIiBoZWlnaHQ9IjgiIHJ4PSI0IiBmaWxsPSIjNjQ3NDhiIi8+CiAgPHJlY3QgeD0iNDE4IiB5PSIxNzQiIHdpZHRoPSIxMjAiIGhlaWdodD0iMTAiIHJ4PSI1IiBmaWxsPSIjMTBiOTgxIi8+CiAgPHJlY3QgeD0iMjMwIiB5PSIyMTgiIHdpZHRoPSIzMjciIGhlaWdodD0iMTQ0IiByeD0iMTAiIGZpbGw9IiMxMzFjMzEiIHN0cm9rZT0iIzFlMjkzYiIvPgogIDxwb2x5bGluZSBwb2ludHM9IjI1MiwzMzIgMzAwLDMwMiAzNDgsMzE0IDM5NiwyNjggNDQ0LDI4MCA0OTIsMjQwIDUzNiwyNDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNhY2NlbnRHcmFkKSIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KICA8Y2lyY2xlIGN4PSIzMDAiIGN5PSIzMDIiIHI9IjUiIGZpbGw9IiMzOGJkZjgiLz4KICA8Y2lyY2xlIGN4PSIzOTYiIGN5PSIyNjgiIHI9IjUiIGZpbGw9IiMzOGJkZjgiLz4KICA8Y2lyY2xlIGN4PSI0OTIiIGN5PSIyNDAiIHI9IjYiIGZpbGw9IiMyMmQzZWUiLz4KICA8dGV4dCB4PSIyNTIiIHk9IjI0NCIgZmlsbD0iIzk0YTNiOCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iYm9sZCI+SU5GUkFFU1RSVVRVUkEgJmFtcDsgU09MVcOHw5VFUyBESUdJVEFJUzwvdGV4dD4KPC9zdmc+"
+                        alt="Painel ilustrativo de tecnologia com gráficos de desempenho e sistemas digitais"
+                        width="640"
+                        height="460"
+                    >
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SOBRE A EMPRESA -->
+        <section id="sobre" class="secao secao-clara">
+            <div class="container">
+                <div class="cabecalho-secao">
+                    <span class="subtitulo-secao">Quem Somos</span>
+                    <h2>Sobre a TechConnect</h2>
+                    <p>Conectando pessoas, infraestrutura e estratégia digital desde 2018.</p>
+                </div>
+
+                <div class="sobre-introducao">
+                    <p>
+                        Fundada com o propósito de desmistificar a tecnologia para pequenas e médias empresas,
+                        a <strong>TechConnect</strong> atua como parceira estratégica na modernização de ambientes
+                        corporativos e na construção de presença digital de alto impacto.
+                    </p>
+                    <p>
+                        Nossa equipe multidisciplinar combina domínio técnico em hardware, redes e desenvolvimento
+                        web com atendimento próximo e humanizado, garantindo que cada cliente tenha estabilidade
+                        operacional e ferramentas modernas para crescer com segurança.
+                    </p>
+                </div>
+
+                <div class="mvv-grid">
+                    <article class="card-mvv">
+                        <h3>Missão</h3>
+                        <p>
+                            Entregar soluções tecnológicas acessíveis, eficientes e seguras que otimizem
+                            a rotina operacional e ampliem a competitividade dos nossos clientes.
+                        </p>
+                    </article>
+
+                    <article class="card-mvv">
+                        <h3>Visão</h3>
+                        <p>
+                            Ser reconhecida regionalmente como referência em excelência técnica,
+                            inovação digital e confiança no atendimento corporativo em TI.
+                        </p>
+                    </article>
+
+                    <article class="card-mvv">
+                        <h3>Valores</h3>
+                        <p>
+                            Ética profissional, transparência nos diagnósticos, compromisso com prazos,
+                            inovação contínua e foco total na experiência do cliente.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SEÇÃO DE SERVIÇOS -->
+        <section id="servicos" class="secao secao-alternada">
+            <div class="container">
+                <div class="cabecalho-secao">
+                    <span class="subtitulo-secao">O Que Fazemos</span>
+                    <h2>Nossos Serviços</h2>
+                    <p>Soluções integradas para manter sua empresa conectada, protegida e produtiva.</p>
+                </div>
+
+                <div class="servicos-grid">
+                    <article class="card-servico">
+                        <img
+                            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCI+CiAgPHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIHJ4PSIyNCIgZmlsbD0iI2VmZjZmZiIvPgogIDxwYXRoIGQ9Ik0zNCA2MmEyNiAyNiAwIDAgMSA1MiAwIiBmaWxsPSJub25lIiBzdHJva2U9IiMyNTYzZWIiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHJlY3QgeD0iMjYiIHk9IjU2IiB3aWR0aD0iMTQiIGhlaWdodD0iMjYiIHJ4PSI3IiBmaWxsPSIjMjU2M2ViIi8+CiAgPHJlY3QgeD0iODAiIHk9IjU2IiB3aWR0aD0iMTQiIGhlaWdodD0iMjYiIHJ4PSI3IiBmaWxsPSIjMjU2M2ViIi8+CiAgPHBhdGggZD0iTTg3IDgyYzAgMTAtOCAxNC0yMSAxNGgtNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDZiNmQ0IiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxjaXJjbGUgY3g9IjU4IiBjeT0iOTYiIHI9IjUiIGZpbGw9IiMwNmI2ZDQiLz4KPC9zdmc+"
+                            alt="Ícone representando suporte técnico e atendimento remoto"
+                            width="120"
+                            height="120"
+                        >
+                        <h3>Suporte Técnico</h3>
+                        <p>
+                            Atendimento remoto e presencial ágil para resolução de falhas em sistemas,
+                            redes locais, configuração de servidores e apoio contínuo aos usuários.
+                        </p>
+                        <a href="#contato" class="btn-card">Solicitar suporte</a>
+                    </article>
+
+                    <article class="card-servico">
+                        <img
+                            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCI+CiAgPHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIHJ4PSIyNCIgZmlsbD0iI2VjZmVmZiIvPgogIDxyZWN0IHg9IjIyIiB5PSIyOCIgd2lkdGg9Ijc2IiBoZWlnaHQ9IjY0IiByeD0iMTAiIGZpbGw9IiNmZmZmZmYiIHN0cm9rZT0iIzA4OTFiMiIgc3Ryb2tlLXdpZHRoPSI0Ii8+CiAgPGxpbmUgeDE9IjIyIiB5MT0iNDQiIHgyPSI5OCIgeTI9IjQ0IiBzdHJva2U9IiMwODkxYjIiIHN0cm9rZS13aWR0aD0iNCIvPgogIDxjaXJjbGUgY3g9IjMzIiBjeT0iMzYiIHI9IjIuNSIgZmlsbD0iIzA4OTFiMiIvPgogIDxjaXJjbGUgY3g9IjQyIiBjeT0iMzYiIHI9IjIuNSIgZmlsbD0iIzA4OTFiMiIvPgogIDxwb2x5bGluZSBwb2ludHM9IjQ4LDYwIDM4LDY4IDQ4LDc2IiBmaWxsPSJub25lIiBzdHJva2U9IiMyNTYzZWIiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPHBvbHlsaW5lIHBvaW50cz0iNzIsNjAgODIsNjggNzIsNzYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI1NjNlYiIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KICA8bGluZSB4MT0iNjQiIHkxPSI1NyIgeDI9IjU2IiB5Mj0iNzkiIHN0cm9rZT0iIzA2YjZkNCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+"
+                            alt="Ícone representando desenvolvimento de sites modernos e responsivos"
+                            width="120"
+                            height="120"
+                        >
+                        <h3>Desenvolvimento de Sites</h3>
+                        <p>
+                            Criação de sites institucionais, landing pages e portais responsivos com foco
+                            em desempenho, acessibilidade, SEO e identidade visual profissional.
+                        </p>
+                        <a href="#contato" class="btn-card">Criar meu site</a>
+                    </article>
+
+                    <article class="card-servico">
+                        <img
+                            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCI+CiAgPHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIHJ4PSIyNCIgZmlsbD0iI2VlZjJmZiIvPgogIDxyZWN0IHg9IjM0IiB5PSIzNCIgd2lkdGg9IjUyIiBoZWlnaHQ9IjUyIiByeD0iMTAiIGZpbGw9IiNmZmZmZmYiIHN0cm9rZT0iIzRmNDZlNSIgc3Ryb2tlLXdpZHRoPSI0Ii8+CiAgPHJlY3QgeD0iNDYiIHk9IjQ2IiB3aWR0aD0iMjgiIGhlaWdodD0iMjgiIHJ4PSI0IiBmaWxsPSIjNGY0NmU1Ii8+CiAgPGxpbmUgeDE9IjQ2IiB5MT0iMjIiIHgyPSI0NiIgeTI9IjM0IiBzdHJva2U9IiM0ZjQ2ZTUiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9IjYwIiB5MT0iMjIiIHgyPSI2MCIgeTI9IjM0IiBzdHJva2U9IiM0ZjQ2ZTUiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9Ijc0IiB5MT0iMjIiIHgyPSI3NCIgeTI9IjM0IiBzdHJva2U9IiM0ZjQ2ZTUiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9IjQ2IiB5MT0iODYiIHgyPSI0NiIgeTI9Ijk4IiBzdHJva2U9IiM0ZjQ2ZTUiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9IjYwIiB5MT0iODYiIHgyPSI2MCIgeTI9Ijk4IiBzdHJva2U9IiM0ZjQ2ZTUiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9Ijc0IiB5MT0iODYiIHgyPSI3NCIgeTI9Ijk4IiBzdHJva2U9IiM0ZjQ2ZTUiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9IjIyIiB5MT0iNDYiIHgyPSIzNCIgeTI9IjQ2IiBzdHJva2U9IiMwNmI2ZDQiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9IjIyIiB5MT0iNjAiIHgyPSIzNCIgeTI9IjYwIiBzdHJva2U9IiMwNmI2ZDQiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9IjIyIiB5MT0iNzQiIHgyPSIzNCIgeTI9Ijc0IiBzdHJva2U9IiMwNmI2ZDQiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9Ijg2IiB5MT0iNDYiIHgyPSI5OCIgeTI9IjQ2IiBzdHJva2U9IiMwNmI2ZDQiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9Ijg2IiB5MT0iNjAiIHgyPSI5OCIgeTI9IjYwIiBzdHJva2U9IiMwNmI2ZDQiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9Ijg2IiB5MT0iNzQiIHgyPSI5OCIgeTI9Ijc0IiBzdHJva2U9IiMwNmI2ZDQiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cjwvc3ZnPg=="
+                            alt="Ícone de processador representando manutenção preventiva e corretiva de computadores"
+                            width="120"
+                            height="120"
+                        >
+                        <h3>Manutenção de Computadores</h3>
+                        <p>
+                            Diagnóstico preciso, limpeza interna, troca de componentes, upgrades de SSD
+                            e memória, além de otimização de estações de trabalho e notebooks.
+                        </p>
+                        <a href="#contato" class="btn-card">Agendar avaliação</a>
+                    </article>
+
+                    <article class="card-servico">
+                        <img
+                            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCI+CiAgPHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIHJ4PSIyNCIgZmlsbD0iI2YwZmRmNCIvPgogIDxyZWN0IHg9IjI4IiB5PSI2NCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjI4IiByeD0iNCIgZmlsbD0iIzA2YjZkNCIvPgogIDxyZWN0IHg9IjUzIiB5PSI0OCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjQ0IiByeD0iNCIgZmlsbD0iIzI1NjNlYiIvPgogIDxyZWN0IHg9Ijc4IiB5PSIzMCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjYyIiByeD0iNCIgZmlsbD0iIzEwYjk4MSIvPgogIDxwb2x5bGluZSBwb2ludHM9IjMyLDUyIDU4LDM2IDg0LDIyIiBmaWxsPSJub25lIiBzdHJva2U9IiMwZjE3MmEiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPGNpcmNsZSBjeD0iODQiIGN5PSIyMiIgcj0iNSIgZmlsbD0iIzEwYjk4MSIvPgo8L3N2Zz4="
+                            alt="Ícone de gráficos de crescimento representando consultoria em soluções digitais"
+                            width="120"
+                            height="120"
+                        >
+                        <h3>Consultoria Digital</h3>
+                        <p>
+                            Planejamento estratégico para transformação digital, migração para nuvem,
+                            segurança da informação e escolha das melhores ferramentas para o seu negócio.
+                        </p>
+                        <a href="#contato" class="btn-card">Falar com consultor</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SEÇÃO DE PROJETOS OU PORTFÓLIO -->
+        <section id="projetos" class="secao secao-clara">
+            <div class="container">
+                <div class="cabecalho-secao">
+                    <span class="subtitulo-secao">Casos de Sucesso</span>
+                    <h2>Portfólio de Projetos</h2>
+                    <p>Conheça algumas entregas recentes desenvolvidas pela equipe TechConnect.</p>
+                </div>
+
+                <div class="projetos-grid">
+                    <article class="card-projeto">
+                        <img
+                            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzYwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM2MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InAxIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFkNGVkOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwZjE3MmEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iMzYwIiBmaWxsPSJ1cmwoI3AxKSIvPgogIDxyZWN0IHg9IjQ1IiB5PSI0MCIgd2lkdGg9IjUxMCIgaGVpZ2h0PSIyODAiIHJ4PSIxNCIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjQ1IiB5PSI0MCIgd2lkdGg9IjUxMCIgaGVpZ2h0PSI0NCIgcng9IjE0IiBmaWxsPSIjZTJlOGYwIi8+CiAgPGNpcmNsZSBjeD0iNzIiIGN5PSI2MiIgcj0iNiIgZmlsbD0iIzk0YTNiOCIvPgogIDxjaXJjbGUgY3g9IjkyIiBjeT0iNjIiIHI9IjYiIGZpbGw9IiM5NGEzYjgiLz4KICA8cmVjdCB4PSI3NSIgeT0iMTA4IiB3aWR0aD0iMjEwIiBoZWlnaHQ9IjIyIiByeD0iNiIgZmlsbD0iIzFlM2E4YSIvPgogIDxyZWN0IHg9Ijc1IiB5PSIxNDIiIHdpZHRoPSIxODAiIGhlaWdodD0iMTIiIHJ4PSI2IiBmaWxsPSIjOTRhM2I4Ii8+CiAgPHJlY3QgeD0iNzUiIHk9IjE2NCIgd2lkdGg9IjE1MCIgaGVpZ2h0PSIxMiIgcng9IjYiIGZpbGw9IiNjYmQ1ZTEiLz4KICA8cmVjdCB4PSI3NSIgeT0iMTk2IiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjM0IiByeD0iOCIgZmlsbD0iIzI1NjNlYiIvPgogIDxyZWN0IHg9IjMyMCIgeT0iMTA4IiB3aWR0aD0iMjA1IiBoZWlnaHQ9IjE4MCIgcng9IjEyIiBmaWxsPSIjZWZmNmZmIiBzdHJva2U9IiNiZmRiZmUiIHN0cm9rZS13aWR0aD0iMiIvPgogIDxjaXJjbGUgY3g9IjQyMiIgY3k9IjE4MiIgcj0iNDIiIGZpbGw9IiMyNTYzZWIiIG9wYWNpdHk9IjAuMiIvPgogIDxwYXRoIGQ9Ik0zOTYgMTg2aDUyTTQyMiAxNjB2NTIiIHN0cm9rZT0iIzFkNGVkOCIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8dGV4dCB4PSI3NSIgeT0iMjgwIiBmaWxsPSIjMWUyOTNiIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSJib2xkIj5QT1JUQUwgQ09SUE9SQVRJVk8gTk9WQUVSQTwvdGV4dD4KPC9zdmc+"
+                            alt="Interface do Portal Corporativo NovaEra Logística"
+                            width="600"
+                            height="360"
+                        >
+                        <div class="projeto-conteudo">
+                            <span class="tag-projeto">Desenvolvimento Web</span>
+                            <h3>Portal Corporativo NovaEra</h3>
+                            <p>
+                                Desenvolvimento de site institucional responsivo com área de rastreamento
+                                de cargas e integração de atendimento comercial, aumentando em 45% os pedidos
+                                de cotação online.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="card-projeto">
+                        <img
+                            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzYwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM2MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InAyIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzA4OTFiMiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwNjRlM2IiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iMzYwIiBmaWxsPSJ1cmwoI3AyKSIvPgogIDxyZWN0IHg9IjQ1IiB5PSI0MCIgd2lkdGg9IjUxMCIgaGVpZ2h0PSIyODAiIHJ4PSIxNCIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjQ1IiB5PSI0MCIgd2lkdGg9IjUxMCIgaGVpZ2h0PSI0NCIgcng9IjE0IiBmaWxsPSIjZWNmZWZmIi8+CiAgPHJlY3QgeD0iNzUiIHk9IjEwNSIgd2lkdGg9IjEzNSIgaGVpZ2h0PSIxNTAiIHJ4PSIxMCIgZmlsbD0iI2YwZmRmNCIgc3Ryb2tlPSIjYmJmN2QwIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8cmVjdCB4PSIyMzIiIHk9IjEwNSIgd2lkdGg9IjEzNSIgaGVpZ2h0PSIxNTAiIHJ4PSIxMCIgZmlsbD0iI2YwZmRmNCIgc3Ryb2tlPSIjYmJmN2QwIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8cmVjdCB4PSIzOTAiIHk9IjEwNSIgd2lkdGg9IjEzNSIgaGVpZ2h0PSIxNTAiIHJ4PSIxMCIgZmlsbD0iI2YwZmRmNCIgc3Ryb2tlPSIjYmJmN2QwIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8Y2lyY2xlIGN4PSIxNDIiIGN5PSIxNTUiIHI9IjI2IiBmaWxsPSIjMTBiOTgxIi8+CiAgPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTU1IiByPSIyNiIgZmlsbD0iIzA2YjZkNCIvPgogIDxjaXJjbGUgY3g9IjQ1NyIgY3k9IjE1NSIgcj0iMjYiIGZpbGw9IiMxMGI5ODEiLz4KICA8cmVjdCB4PSI5OCIgeT0iMjAwIiB3aWR0aD0iODgiIGhlaWdodD0iMTIiIHJ4PSI2IiBmaWxsPSIjMGYxNzJhIi8+CiAgPHJlY3QgeD0iMjU2IiB5PSIyMDAiIHdpZHRoPSI4OCIgaGVpZ2h0PSIxMiIgcng9IjYiIGZpbGw9IiMwZjE3MmEiLz4KICA8cmVjdCB4PSI0MTMiIHk9IjIwMCIgd2lkdGg9Ijg4IiBoZWlnaHQ9IjEyIiByeD0iNiIgZmlsbD0iIzBmMTcyYSIvPgogIDx0ZXh0IHg9Ijc1IiB5PSIyOTIiIGZpbGw9IiMwNjVmNDYiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPkUtQ09NTUVSQ0UgVkVSREVWSURBIE9SR8OCTklDT1M8L3RleHQ+Cjwvc3ZnPg=="
+                            alt="Layout da loja virtual VerdeVida Orgânicos"
+                            width="600"
+                            height="360"
+                        >
+                        <div class="projeto-conteudo">
+                            <span class="tag-projeto">Soluções Digitais</span>
+                            <h3>Loja Virtual VerdeVida</h3>
+                            <p>
+                                Estruturação completa de catálogo digital leve e intuitivo, otimizado para
+                                dispositivos móveis, proporcionando navegação rápida e checkout simplificado.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="card-projeto">
+                        <img
+                            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzYwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjM2MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InAzIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzMxMmU4MSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwZjE3MmEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iMzYwIiBmaWxsPSJ1cmwoI3AzKSIvPgogIDxyZWN0IHg9IjQ1IiB5PSI0MCIgd2lkdGg9IjUxMCIgaGVpZ2h0PSIyODAiIHJ4PSIxNCIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjQ1IiB5PSI0MCIgd2lkdGg9IjUxMCIgaGVpZ2h0PSI0NCIgcng9IjE0IiBmaWxsPSIjZWVmMmZmIi8+CiAgPHJlY3QgeD0iNzUiIHk9IjEwNSIgd2lkdGg9IjIxMCIgaGVpZ2h0PSIxNDUiIHJ4PSIxMiIgZmlsbD0iI2VlZjJmZiIgc3Ryb2tlPSIjYzdkMmZlIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8cmVjdCB4PSIzMDUiIHk9IjEwNSIgd2lkdGg9IjIyMCIgaGVpZ2h0PSI2NSIgcng9IjEwIiBmaWxsPSIjZjhmYWZjIiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iMiIvPgogIDxyZWN0IHg9IjMwNSIgeT0iMTg1IiB3aWR0aD0iMjIwIiBoZWlnaHQ9IjY1IiByeD0iMTAiIGZpbGw9IiNmOGZhZmMiIHN0cm9rZT0iI2NiZDVlMSIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPHBhdGggZD0iTTE1MCAxNzhoNjBNMTgwIDE0OHY2MCIgc3Ryb2tlPSIjNGY0NmU1IiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxyZWN0IHg9IjMyNSIgeT0iMTI4IiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjEyIiByeD0iNiIgZmlsbD0iIzRmNDZlNSIvPgogIDxyZWN0IHg9IjMyNSIgeT0iMjA4IiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjEyIiByeD0iNiIgZmlsbD0iIzA2YjZkNCIvPgogIDx0ZXh0IHg9Ijc1IiB5PSIyOTIiIGZpbGw9IiMxZTFiNGIiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiPklORlJBRVNUUlVUVVJBICZhbXA7IENMT1VEIFNBw5pERU1BSVM8L3RleHQ+Cjwvc3ZnPg=="
+                            alt="Painel de infraestrutura em nuvem da Clínica SaúdeMais"
+                            width="600"
+                            height="360"
+                        >
+                        <div class="projeto-conteudo">
+                            <span class="tag-projeto">Infraestrutura &amp; Suporte</span>
+                            <h3>Reestruturação Clínica SaúdeMais</h3>
+                            <p>
+                                Modernização de 35 estações de trabalho, implantação de backup automatizado
+                                em nuvem e contrato de suporte preventivo com disponibilidade de 99,9%.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. SEÇÃO DE DIFERENCIAIS -->
+        <section id="diferenciais" class="secao secao-escura">
+            <div class="container">
+                <div class="cabecalho-secao cabecalho-claro">
+                    <span class="subtitulo-secao">Por Que Escolher a TechConnect</span>
+                    <h2>Nossos Diferenciais</h2>
+                    <p>Compromisso técnico e atendimento transparente em cada etapa do projeto.</p>
+                </div>
+
+                <ul class="lista-diferenciais">
+                    <li class="item-diferencial">
+                        <span class="icone-diferencial" aria-hidden="true">&#9889;</span>
+                        <div>
+                            <h3>Atendimento Ágil e Humanizado</h3>
+                            <p>Canais diretos de suporte sem burocracia, com diagnóstico claro e linguagem acessível.</p>
+                        </div>
+                    </li>
+
+                    <li class="item-diferencial">
+                        <span class="icone-diferencial" aria-hidden="true">&#128737;</span>
+                        <div>
+                            <h3>Segurança e Boas Práticas</h3>
+                            <p>Aplicação rigorosa de padrões modernos de proteção de dados, backups e código limpo.</p>
+                        </div>
+                    </li>
+
+                    <li class="item-diferencial">
+                        <span class="icone-diferencial" aria-hidden="true">&#128187;</span>
+                        <div>
+                            <h3>Soluções Personalizadas</h3>
+                            <p>Projetos dimensionados exatamente para a necessidade e o orçamento de cada empresa.</p>
+                        </div>
+                    </li>
+
+                    <li class="item-diferencial">
+                        <span class="icone-diferencial" aria-hidden="true">&#9989;</span>
+                        <div>
+                            <h3>Garantia e Acompanhamento</h3>
+                            <p>Suporte pós-entrega e monitoramento contínuo para assegurar máxima estabilidade.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 7. DEPOIMENTOS DE CLIENTES -->
+        <section id="depoimentos" class="secao secao-alternada">
+            <div class="container">
+                <div class="cabecalho-secao">
+                    <span class="subtitulo-secao">Satisfação Comprovada</span>
+                    <h2>O Que Dizem Nossos Clientes</h2>
+                    <p>Avaliações de gestores e empreendedores que confiam no nosso trabalho.</p>
+                </div>
+
+                <div class="depoimentos-grid">
+                    <article class="card-depoimento">
+                        <p class="texto-depoimento">
+                            &ldquo;A TechConnect revitalizou todo o nosso parque de computadores e criou nosso
+                            novo site institucional. Hoje temos muito mais agilidade no dia a dia.&rdquo;
+                        </p>
+                        <div class="autor-depoimento">
+                            <strong>Mariana Almeida</strong>
+                            <span>Diretora Administrativa &bull; NovaEra Logística</span>
+                        </div>
+                    </article>
+
+                    <article class="card-depoimento">
+                        <p class="texto-depoimento">
+                            &ldquo;Excelente suporte técnico! Sempre que precisamos de orientação ou manutenção,
+                            a equipe responde rapidamente e resolve o problema com total transparência.&rdquo;
+                        </p>
+                        <div class="autor-depoimento">
+                            <strong>Carlos Eduardo Mendes</strong>
+                            <span>Gestor Operacional &bull; Clínica SaúdeMais</span>
+                        </div>
+                    </article>
+
+                    <article class="card-depoimento">
+                        <p class="texto-depoimento">
+                            &ldquo;A consultoria digital foi essencial para estruturarmos nossas vendas online.
+                            O site ficou leve, bonito e funciona perfeitamente no celular.&rdquo;
+                        </p>
+                        <div class="autor-depoimento">
+                            <strong>Fernanda Costa</strong>
+                            <span>Fundadora &bull; VerdeVida Orgânicos</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. FORMULÁRIO DE CONTATO -->
+        <section id="contato" class="secao secao-clara">
+            <div class="container contato-grid">
+                <div class="contato-info">
+                    <span class="subtitulo-secao">Fale Conosco</span>
+                    <h2>Pronto para modernizar sua empresa?</h2>
+                    <p>
+                        Preencha o formulário ao lado com os detalhes da sua necessidade. Nossa equipe
+                        analisará sua solicitação e retornará em até 1 dia útil.
+                    </p>
+
+                    <div class="detalhes-contato">
+                        <p><strong>Endereço:</strong> Av. Tecnologia, 1500 - Sala 402, Centro</p>
+                        <p><strong>Telefone / WhatsApp:</strong> (35) 3214-8900</p>
+                        <p><strong>E-mail:</strong> contato@techconnect.com.br</p>
+                        <p><strong>Horário:</strong> Segunda a Sexta, das 08h às 18h</p>
+                    </div>
+                </div>
+
+                <form id="form-contato" class="formulario-contato" action="#" method="post">
+                    <div class="campo-grupo">
+                        <label for="nome">Nome completo *</label>
+                        <input
+                            type="text"
+                            id="nome"
+                            name="nome"
+                            placeholder="Digite seu nome completo"
+                            minlength="3"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="email">E-mail corporativo ou pessoal *</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="exemplo@empresa.com.br"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="assunto">Assunto *</label>
+                        <input
+                            type="text"
+                            id="assunto"
+                            name="assunto"
+                            placeholder="Ex.: Desenvolvimento de site, Suporte técnico..."
+                            minlength="4"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="mensagem">Mensagem *</label>
+                        <textarea
+                            id="mensagem"
+                            name="mensagem"
+                            rows="5"
+                            placeholder="Descreva como a TechConnect pode ajudar você ou sua empresa..."
+                            minlength="10"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primario btn-enviar">Enviar Mensagem</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 9. RODAPÉ (FOOTER) -->
+    <footer id="rodape">
+        <div class="container rodape-grid">
+            <div class="rodape-coluna">
+                <a href="#inicio" class="logotipo logo-rodape">
+                    <span class="logo-icone" aria-hidden="true">&lt;/&gt;</span>
+                    <span class="logo-texto">Tech<strong>Connect</strong></span>
+                </a>
+                <p>
+                    Soluções inteligentes em tecnologia, infraestrutura de TI e desenvolvimento web
+                    para impulsionar o crescimento do seu negócio.
+                </p>
+                <p class="rodape-contato">
+                    contato@techconnect.com.br &bull; (35) 3214-8900
+                </p>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Navegação</h3>
+                <ul class="rodape-links">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre a Empresa</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#projetos">Portfólio</a></li>
+                    <li><a href="#diferenciais">Diferenciais</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="rodape-coluna">
+                <h3>Redes Sociais</h3>
+                <ul class="rodape-links">
+                    <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                    <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    <li><a href="https://youtube.com" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="rodape-base">
+            <div class="container">
+                <p>&copy; 2026 TechConnect Soluções em Tecnologia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
